@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>МАРИАРТИ — подкасты, авторские шоу и документальные проекты под ключ</title>
+<meta name="description" content="МАРИАРТИ — создание подкастов, авторских шоу и документальных проектов под ключ. От идеи до релиза и продвижения. Москва, работаем по России.">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="Мариарти, создание подкастов, авторские шоу, документальные проекты, продюсирование, Москва">
+<meta property="og:title" content="МАРИАРТИ — подкасты, авторские шоу и документальные проекты">
+<meta property="og:description" content="МАРИАРТИ — создание подкастов, авторских шоу и документальных проектов под ключ. От идеи до релиза и продвижения. Москва, работаем по России.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mariarti.pro">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#111111; --deep:#0a0a0a; --red:#B40018; --white:#FFFFFF;
+  --mute:rgba(255,255,255,.62); --line:rgba(255,255,255,.18);
+  --pad:clamp(20px,6vw,96px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:1px solid var(--red);outline-offset:4px}
+section{position:relative;padding:clamp(80px,12vw,180px) var(--pad)}
+h2{font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(26px,3.6vw,54px);line-height:1.18;text-wrap:balance}
+.sub{font-weight:300;text-transform:uppercase;letter-spacing:.22em;font-size:clamp(12px,1.1vw,15px);color:var(--mute);margin-top:22px}
+.accent{position:relative;padding-left:26px}
+.accent::before{content:"";position:absolute;left:0;top:.12em;bottom:.12em;width:3px;background:var(--red)}
+p{font-size:clamp(15px,1.15vw,18px)}
+.bw{filter:grayscale(1) contrast(1.15) brightness(.8)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:22px var(--pad);pointer-events:none}
+.top>*{pointer-events:auto}
+.top{transition:background .4s,padding .4s}
+.scrolled .top{background:rgba(10,10,10,.92);padding-top:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.logo img{display:block;width:34px;height:auto}
+.burger{width:44px;height:44px;display:grid;place-content:center;gap:7px}
+.burger i{display:block;width:30px;height:1.5px;background:#fff;transition:transform .35s,opacity .35s}
+.menu-open .burger i:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+.menu-open .burger i:nth-child(2){opacity:0}
+.menu-open .burger i:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+.menu{position:fixed;top:0;right:0;z-index:35;width:min(420px,100%);padding:110px var(--pad) 48px clamp(28px,4vw,56px);background:var(--deep);border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:translateY(-102%);transition:transform .5s cubic-bezier(.7,0,.2,1);visibility:hidden}
+.menu-open .menu{transform:none;visibility:visible}
+.menu a{display:flex;gap:18px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);text-transform:uppercase;letter-spacing:.2em;font-size:14px;transition:color .25s,padding-left .25s}
+.menu a span{font-weight:200;color:var(--red);font-size:12px}
+.menu a:hover{color:var(--red);padding-left:8px}
+
+/* hero */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero{position:relative;display:block;padding:0;height:calc(100vw*941/1672);min-height:0;overflow:hidden;background:#000}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 2s ease}
+.hero.is-zoomed .hero-bg{transform:scale(1.03)}
+@media(hover:hover){.hero:hover .hero-bg{transform:scale(1.03)}}
+@media(max-width:860px){.hero.is-zoomed .hero-bg{transform:translate(-50%,-50%) scale(1.03)}}
+@media(max-width:860px) and (hover:hover){.hero:hover .hero-bg{transform:translate(-50%,-50%) scale(1.03)}}
+.hero-zoom{position:absolute;inset:0;width:100%;height:100%;z-index:3;cursor:zoom-in}
+.hero.is-zoomed .hero-zoom{cursor:zoom-out}
+.hero-title{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.05vw;font-weight:300;text-transform:uppercase}
+.hero-name{font-size:4.1vw;letter-spacing:.96em;margin-right:-.96em;line-height:1;font-weight:300}
+.hero-red{font-size:1.6vw;letter-spacing:.696em;margin-right:-.696em;color:#d4001c;font-weight:500;line-height:1;text-shadow:0 0 14px rgba(0,0,0,.85),0 0 4px rgba(0,0,0,.7)}
+.hero-line{position:absolute;bottom:clamp(14px,2.2vw,34px);left:50%;width:clamp(44px,5.4vw,78px);height:3px;margin-left:calc(clamp(44px,5.4vw,78px)/-2);background:var(--red)}
+
+/* block 2 */
+.about{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(32px,7vw,120px);align-items:end}
+.about .lead{font-size:clamp(17px,1.5vw,23px);font-weight:300;color:rgba(255,255,255,.85);max-width:30em;padding-bottom:6px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1vw,16px);margin-top:clamp(48px,7vw,110px)}
+.card{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;text-align:left;display:block;width:100%}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.card .name{position:absolute;z-index:2;left:clamp(16px,2vw,30px);right:clamp(16px,2vw,30px);bottom:clamp(16px,2vw,28px);display:flex;justify-content:space-between;align-items:center;gap:16px;text-transform:uppercase;letter-spacing:.26em;font-weight:400;font-size:clamp(11px,1.02vw,15px);line-height:1.7}
+.card .name b{font-weight:400;padding-left:clamp(12px,1.3vw,20px);border-left:3px solid var(--red)}
+.card .name::after{content:"";flex:none;width:clamp(24px,2.4vw,36px);height:10px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 10' fill='none' stroke='%23fff' stroke-width='1.2'%3E%3Cpath d='M0 5h35M30 .5 35 5l-5 4.5'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.card .over{position:absolute;inset:0;z-index:3;background:var(--red);padding:clamp(16px,1.8vw,28px);display:flex;flex-direction:column;justify-content:flex-end;gap:10px;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s}
+.card .over h3{font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:clamp(13px,1.1vw,17px);line-height:1.35}
+.card .over p{font-size:clamp(12.5px,.95vw,15px);line-height:1.5}
+@media (min-width:861px) and (max-width:1300px){.card{min-height:260px}}
+.card:hover .over,.card:focus-visible .over,.card.on .over{opacity:1;transform:none}
+.card:hover img{transform:scale(1.05)}
+.card .name{transition:opacity .3s}
+.card:hover .name,.card:focus-visible .name,.card.on .name{opacity:0}
+
+/* block 3 */
+.cycle{background:var(--deep)}
+.cycle-head{display:block}
+.cycle-head h2{font-weight:400;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(26px,3.6vw,54px);line-height:1.18}
+.cycle-head .sub{margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4.5vw,72px);margin-top:clamp(40px,5vw,80px)}
+.step .num{display:flex;align-items:center;gap:clamp(14px,1.8vw,26px);font-weight:300;color:var(--red);font-size:clamp(48px,5vw,76px);line-height:1;letter-spacing:0}
+.step .num::after{content:"";flex:1;height:1px;background:var(--line)}
+.step h3{margin-top:clamp(18px,2vw,30px);font-weight:500;text-transform:uppercase;letter-spacing:.16em;font-size:clamp(14px,1.25vw,19px);line-height:1.35}
+.step p{margin-top:14px;color:var(--mute);font-size:clamp(14px,1.12vw,17px);line-height:1.6;max-width:24em}
+
+/* block 4 */
+.reel-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.reel-head span{font-weight:200;font-size:clamp(40px,6vw,96px);line-height:.9;color:rgba(255,255,255,.25)}
+.poster{position:relative;display:block;width:100%;margin-top:clamp(36px,5vw,72px);aspect-ratio:16/8;overflow:hidden;background:#000}
+.poster img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s ease}
+.poster:hover img{transform:scale(1.04)}
+.poster::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.22)}
+.play{position:absolute;z-index:2;left:50%;top:50%;width:clamp(72px,8vw,120px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:var(--red);display:grid;place-items:center;transition:transform .35s}
+.poster:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.play::after{content:"";margin-left:8%;border-left:clamp(18px,2vw,28px) solid #fff;border-top:clamp(11px,1.2vw,17px) solid transparent;border-bottom:clamp(11px,1.2vw,17px) solid transparent}
+.poster .cap{position:absolute;z-index:2;left:clamp(24px,3vw,48px);bottom:clamp(18px,2.4vw,36px);text-transform:uppercase;letter-spacing:.24em;font-size:clamp(11px,1vw,14px)}
+
+/* block 5 */
+.cta{padding:0;height:min(92svh,820px);min-height:460px;display:grid;place-items:center;overflow:hidden;background:#000}
+.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6}
+.btn{position:relative;padding:24px clamp(34px,5vw,72px);border:1px solid #fff;text-transform:uppercase;letter-spacing:.34em;font-weight:500;font-size:clamp(13px,1.2vw,17px);background:rgba(17,17,17,.35);transition:background .35s,border-color .35s}
+.btn::before{content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:4px;background:var(--red)}
+.btn:hover{background:var(--red);border-color:var(--red)}
+.cards-cta{display:flex;justify-content:center;margin-top:clamp(40px,5vw,80px)}
+.cards-cta .btn{display:inline-block;text-align:center}
+
+/* partners */
+.partners{background:var(--black)}
+.logos{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.2vw,20px);margin-top:clamp(40px,5vw,80px)}
+.logos li{aspect-ratio:4/3;overflow:hidden;background:#000;border:1px solid var(--line)}
+.logos img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.6) contrast(6) invert(1);mix-blend-mode:screen;opacity:.92;transition:opacity .4s}
+.logos li:last-child img{filter:grayscale(1) brightness(1.05) contrast(3) invert(1)}
+.logos img.mono{filter:none}
+.logos li:hover img{opacity:1}
+@media (max-width:900px){.logos{grid-template-columns:repeat(2,1fr)}.logos li:last-child{grid-column:1/-1;justify-self:center;width:calc(50% - 5px)}}
+
+/* mediaceh */
+.mc{background:var(--deep);border-top:1px solid var(--line);padding:clamp(72px,9vw,140px) var(--pad)}
+.mc-in{max-width:900px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+.mc-label{text-transform:uppercase;letter-spacing:.32em;font-size:clamp(11px,.85vw,13px);font-weight:500;color:var(--red);margin-bottom:clamp(18px,1.8vw,28px)}
+.mc h2{font-weight:400;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(24px,2.9vw,46px);line-height:1.15;text-wrap:balance}
+.mc .final-line{margin:clamp(26px,2.6vw,40px) 0}
+.mc-text{max-width:640px;color:var(--mute);font-weight:300;font-size:clamp(16px,1.3vw,20px);line-height:1.65;margin-bottom:clamp(36px,4vw,60px)}
+
+/* card labels: readable over photo */
+.card::before{content:"";position:absolute;inset:auto 0 0 0;height:62%;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(0,0,0,.78),rgba(0,0,0,0))}
+.card .name{letter-spacing:.14em;font-size:clamp(12px,1vw,15px);font-weight:500;line-height:1.45}
+.card .name b{font-weight:500}
+/* less empty space under showreel */
+#reel{padding-bottom:clamp(40px,4vw,64px)}
+#partners{padding-top:clamp(56px,6vw,96px)}
+/* final: split — photo + contacts */
+.final{background:var(--black);padding:0;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:clamp(520px,44vw,760px)}
+.final-photo{position:relative;margin:0;overflow:hidden;background:#000}
+.final-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;transition:transform 2s ease}
+.final-photo:hover img{transform:scale(1.03)}
+.final-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 48%,rgba(17,17,17,.65) 82%,var(--black) 100%)}
+.final-body{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,6vw,110px) var(--pad) clamp(56px,6vw,110px) clamp(36px,5vw,96px)}
+.final h2{font-weight:400;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(26px,3.1vw,50px);line-height:1.12;text-wrap:balance}
+.final h2 em{font-style:normal;color:var(--red);display:block}
+.final-line{display:block;width:clamp(44px,4vw,64px);height:3px;background:var(--red);margin:clamp(26px,2.6vw,40px) 0 clamp(32px,3.2vw,52px)}
+.final-label{text-transform:uppercase;letter-spacing:.32em;font-size:clamp(11px,.85vw,13px);font-weight:500;color:var(--red);margin-bottom:clamp(14px,1.4vw,22px)}
+.final-contacts{list-style:none;max-width:460px}
+.final-contacts li{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:clamp(16px,1.5vw,22px) 0;border-top:1px solid var(--line)}
+.final-contacts li:last-child{border-bottom:1px solid var(--line)}
+.final-contacts small{text-transform:uppercase;letter-spacing:.24em;font-size:11px;font-weight:400;color:var(--mute);flex:none}
+.final-contacts a,.final-contacts span{font-size:clamp(16px,1.35vw,21px);font-weight:400;color:#fff;text-align:right}
+.final-contacts a{border-bottom:1px solid transparent;transition:color .25s,border-color .25s}
+.final-contacts a:hover{color:var(--red);border-color:var(--red)}
+
+footer{padding:clamp(28px,3vw,44px) var(--pad);display:flex;justify-content:center;align-items:center;gap:clamp(14px,1.6vw,22px);flex-wrap:wrap;border-top:1px solid var(--line);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
+footer img{width:22px;height:auto}
+footer b{font-weight:500;color:#fff;letter-spacing:.3em}
+
+/* modals */
+.modal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.9);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.modal.open{opacity:1;visibility:visible}
+.modal .x{position:absolute;top:18px;right:22px;width:48px;height:48px;font-size:34px;font-weight:200;line-height:1}
+.modal .x:hover{color:var(--red)}
+.modal video{width:min(1200px,100%);max-height:84svh;background:#000}
+.letter{position:relative;width:min(640px,100%);max-height:88svh;overflow:auto;background:var(--black);border:1px solid var(--line);padding:clamp(32px,5vw,64px)}
+.letter::before{content:"";position:absolute;left:0;top:0;width:4px;height:96px;background:var(--red)}
+.letter h3{font-weight:500;text-transform:uppercase;letter-spacing:.18em;font-size:clamp(18px,1.8vw,24px);margin-bottom:24px}
+.letter p+p{margin-top:16px}
+.letter a{color:#fff;border-bottom:1px solid var(--red);font-weight:500}
+.letter a:hover{color:var(--red)}
+
+@media (max-width:860px){
+  .about,.cycle-head,.final{grid-template-columns:1fr}
+  .final{min-height:0}
+  .final-photo{position:relative;margin:0;background:#000}
+  .final-photo img{position:static;display:block;width:100%;height:auto;inset:auto}
+  .final-photo::after{background:linear-gradient(0deg,var(--black) 0%,rgba(17,17,17,0) 45%)}
+  .final-body{padding:clamp(36px,8vw,64px) var(--pad) clamp(56px,12vw,90px)}
+  .cycle-head .sub{justify-self:start}
+  .cards,.steps{grid-template-columns:1fr}
+  .card:nth-child(n),.step:nth-child(n){margin-top:0}
+  .card{aspect-ratio:4/3}
+  .poster{aspect-ratio:4/3}
+  .hero{height:max(62svh,360px)}
+  .hero-title{top:50%;gap:12px}
+  .hero-name{font-size:22px}
+  .hero-red{font-size:9px}
+  .hero-bg{inset:auto;left:50%;top:50%;width:182vw;max-width:none;height:auto;transform:translate(-50%,-50%);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 16%,#000 84%,transparent)}
+}
+
+/* Format cards: short descriptions and contact actions */
+.card .name>span{display:block;padding-left:clamp(12px,1.3vw,20px);border-left:3px solid var(--red)}
+.card .name b{border:0;padding:0;display:block}
+.card .name small{display:block;margin-top:6px;text-transform:none;letter-spacing:.02em;font-weight:300;font-size:clamp(12px,.9vw,14px);line-height:1.4;color:rgba(255,255,255,.85)}
+.card{min-height:340px;cursor:pointer}
+.card .over{visibility:hidden;justify-content:center;overflow-y:auto}
+.card:hover .over,.card:focus-within .over,.card.on .over{visibility:visible;opacity:1;transform:none}
+.card:focus-within .name{opacity:0}
+.card .card-cta{align-self:flex-start;margin-top:8px;padding:12px 16px;border:1px solid #fff;font-size:12px;letter-spacing:.08em}
+.card .card-cta:hover{background:#fff;color:var(--red)}
+@media(max-width:860px){.card{min-height:340px}}
+/* how we work */
+.step .out{margin-top:14px;font-size:13px;letter-spacing:.04em;color:#fff}
+.step .out span{color:var(--red);text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:500;margin-right:8px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(48px,6vw,90px)}
+.fact{background:var(--deep);padding:clamp(22px,2.4vw,36px)}
+.fact small{display:block;text-transform:uppercase;letter-spacing:.24em;font-size:11px;color:var(--mute)}
+.fact strong{display:block;margin-top:10px;font-weight:400;font-size:clamp(20px,2vw,30px);line-height:1.2}
+.fact p{margin-top:8px;font-size:14px;color:var(--mute)}
+.incl{margin-top:clamp(40px,5vw,72px)}
+.incl h3{text-transform:uppercase;letter-spacing:.2em;font-size:13px;font-weight:500;color:var(--red)}
+.incl ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0 clamp(20px,3vw,48px);margin-top:18px}
+.incl li{padding:14px 0;border-top:1px solid var(--line);font-size:15px}
+
+@media(max-width:860px){.facts{grid-template-columns:1fr}.incl ul{grid-template-columns:repeat(2,1fr)}}
+
+/* Client cases */
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.4vw,20px);margin-top:24px;scroll-margin-top:100px}
+.case{border:1px solid var(--line);padding:clamp(22px,2.2vw,34px);display:flex;flex-direction:column;gap:20px;background:#0d0d0d}
+.case h3{font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:clamp(17px,1.3vw,21px);line-height:1.4}
+.case-client{font-size:15px;line-height:1.5}
+.case-client span,.case dt,.case-result>span{display:block;color:var(--red);text-transform:uppercase;letter-spacing:.15em;font-size:12px;font-weight:500;margin-bottom:8px}
+.case dl{font-size:16px;line-height:1.65}
+.case dd{margin:0 0 20px}
+.case dd:last-child{margin-bottom:0}
+.case-result{margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+.case-result p{font-size:clamp(23px,2vw,30px);line-height:1.3;font-weight:400}
+.case-result small{display:block;margin-top:10px;font-size:15px;line-height:1.5;color:var(--mute)}
+@media(max-width:1000px){.cases{grid-template-columns:1fr}}
+.team{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,90px);align-items:center;background:var(--deep)}
+.ph{aspect-ratio:4/5;border:1px dashed rgba(255,196,0,.6);display:grid;place-items:center;color:#ffd24d;font-size:13px;letter-spacing:.2em;text-transform:uppercase;background:#141414}
+.team h2{margin-top:10px}
+.team .role{margin-top:12px;color:var(--red);text-transform:uppercase;letter-spacing:.22em;font-size:12px;font-weight:500}
+.team .bio{margin-top:22px;color:rgba(255,255,255,.85);max-width:34em}
+.team ul{list-style:none;display:flex;gap:clamp(20px,3vw,48px);margin-top:28px;flex-wrap:wrap}
+.team li strong{display:block;font-weight:300;font-size:clamp(28px,2.6vw,40px);line-height:1}
+.team li span{font-size:12px;color:var(--mute);letter-spacing:.06em}
+.quote{margin-top:clamp(32px,3.6vw,52px);padding:clamp(22px,2.2vw,32px);border-left:3px solid var(--red);background:#111}
+.quote p{font-size:clamp(15px,1.2vw,18px);font-style:italic}
+.quote footer{all:unset;display:block;margin-top:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+
+.team .quote footer{font-size:13px;line-height:1.6}.team .quote p+p{margin-top:14px}.team li span{display:block;margin-top:9px}.team .ph{padding:24px;text-align:center}
+@media(max-width:860px){.team{grid-template-columns:1fr}.team .ph{max-width:440px;width:100%;margin:auto}}
+.next{list-style:none;counter-reset:n;margin:0 0 clamp(26px,2.6vw,38px);display:grid;gap:10px;max-width:460px}
+.next li{counter-increment:n;display:flex;gap:14px;font-size:14.5px;line-height:1.45}
+.next li::before{content:"0" counter(n);color:var(--red);font-weight:500;font-size:13px;letter-spacing:.06em;padding-top:2px}
+.limit{margin-top:22px;max-width:460px;font-size:13px;color:var(--mute);line-height:1.55}
+/* mediaceh compact */
+.mc{padding:clamp(48px,5vw,80px) var(--pad)}
+.mc-in{max-width:none;flex-direction:row;justify-content:space-between;text-align:left;gap:clamp(24px,4vw,72px)}
+.mc h2{font-size:clamp(18px,1.7vw,26px)}
+.mc-text{margin:12px 0 0;font-size:15px;max-width:46em}
+.mc .btn{flex:none;padding:18px 36px;font-size:13px}
+
+
+.team-photo{margin:0;align-self:start;position:sticky;top:100px}
+.team-photo img{display:block;width:100%;height:auto;max-height:850px;object-fit:contain;transition:transform 2s ease}
+.team-photo{overflow:hidden}
+.team-photo-button{display:block;width:100%;overflow:hidden;cursor:zoom-in}
+.team-photo.is-zoomed img{transform:scale(1.03)}
+@media(hover:hover){.team-photo:hover img{transform:scale(1.03)}}
+.final{align-items:start;min-height:0}
+.final-photo{position:sticky;top:100px;align-self:start}
+.final-photo img{position:static;display:block;width:100%;height:auto;object-fit:contain;transform:none}
+.final-photo:hover img{transform:scale(1.03)}
+.final-photo::after{background:linear-gradient(90deg,transparent 48%,rgba(17,17,17,.65) 82%,var(--black) 100%)}
+@media(max-width:860px){.final-photo::after{background:linear-gradient(0deg,var(--black) 0%,rgba(17,17,17,0) 45%)}}
+@media(max-width:860px){.team-photo{position:static;max-width:440px;margin:auto}.final-photo{position:static}.mc-in{flex-direction:column;align-items:flex-start}}
+
+/* Edge shading stays within each photograph, above the animated image. */
+.team-photo::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,transparent 55%,rgba(17,17,17,.55) 85%,var(--black) 100%),linear-gradient(0deg,rgba(17,17,17,.65),transparent 35%)}
+.final-photo::after{z-index:2}
+@media(max-width:860px){
+.team-photo,.final-photo{position:relative;top:auto}
+.team-photo::after{background:linear-gradient(90deg,transparent 65%,rgba(17,17,17,.65) 100%),linear-gradient(0deg,var(--black),transparent 35%)}
+.final-photo::after{background:linear-gradient(0deg,var(--black),transparent 45%)}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="#top" aria-label="МАРИАРТИ — на главную"><img src="assets/logo.png" alt="" width="514" height="665"></a>
+  <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
+</header>
+
+<nav class="menu" id="menu" aria-label="Основное меню">
+  <a href="#about"><span>01</span>Лаборатория</a>
+  <a href="#cycle"><span>02</span>Как мы работаем</a>
+  <a href="#reel"><span>03</span>Шоурил и кейсы</a>
+  <a href="#team"><span>04</span>Кто ведёт ваш проект</a>
+  <a href="#contact"><span>05</span>Обсудить проект</a>
+</nav>
+
+<main id="top">
+
+<!-- БЛОК 1 -->
+<section class="hero">
+  <img class="hero-bg" src="assets/hero.jpg?v=2" width="1672" height="941" alt="" fetchpriority="high">
+  <h1 class="hero-title"><span class="hero-name">МАРИАРТИ</span></h1>
+  <i class="hero-line"></i>
+  <button class="hero-zoom" type="button" aria-label="Увеличить фотографию" aria-pressed="false"></button>
+</section>
+
+<!-- БЛОК 2 -->
+<section id="about">
+  <div class="about">
+    <div class="rv">
+      <h2 class="accent">Лаборатория креативных медиапроектов</h2>
+      <p class="sub">От идеи до релиза и продвижения</p>
+    </div>
+    <p class="lead rv">Разрабатываем авторские медиаформаты, которые усиливают личный бренд и решают бизнес-задачи.</p>
+  </div>
+  <div class="cards">
+    <article class="card rv" tabindex="0">
+      <img src="assets/show.jpg?v=9" alt="Режиссёрский стул в студии" loading="lazy">
+      <span class="name"><span><b>Авторские шоу</b><small>Интервью, ток-шоу, реалити, веб-сериалы</small></span></span>
+      <span class="over">
+        <h3>Авторские шоу и развлекательный контент</h3>
+        <p>Создаём проекты телевизионного уровня для ваших digital-площадок: интервью, реалити, лайфстайл-шоу, ток-шоу, развлекательные и познавательные программы, веб-сериалы и другие форматы для соцсетей.</p>
+        <a class="btn card-cta" href="#contact">Обсудить проект</a>
+      </span>
+    </article>
+    <article class="card rv" tabindex="0">
+      <img src="assets/podcast.jpg?v=8" alt="Студийный микрофон" loading="lazy">
+      <span class="name"><span><b>Подкасты</b><small>Видео- и аудиоподкасты, экспертные беседы</small></span></span>
+      <span class="over">
+        <h3>Подкасты</h3>
+        <p>Разрабатываем авторские форматы, которые раскрывают личности, формируют доверие и удерживают внимание аудитории: видеоподкасты, аудиоподкасты, интервью, дискуссии, экспертные беседы, тематические подкаст-сериалы.</p>
+        <a class="btn card-cta" href="#contact">Обсудить проект</a>
+      </span>
+    </article>
+    <article class="card rv" tabindex="0">
+      <img src="assets/doc.jpg?v=11" alt="Фигура в красном плаще на скале над облаками" loading="lazy">
+      <span class="name"><span><b>Документальные проекты</b><small>Фильмы-портреты, истории брендов, сериалы</small></span></span>
+      <span class="over">
+        <h3>Документальные проекты</h3>
+        <p>Рассказываем реальные истории кинематографично: документальные фильмы, фильмы-портреты, документальные сериалы, биографические фильмы, истории брендов и компаний, социальные и образовательные проекты.</p>
+        <a class="btn card-cta" href="#contact">Обсудить проект</a>
+      </span>
+    </article>
+  </div>
+</section>
+
+<!-- БЛОК 3 -->
+<section class="cycle" id="cycle">
+  <div class="cycle-head rv">
+    <h2 class="accent">Как мы работаем</h2>
+    <p class="sub" style="margin-top:22px">Полный цикл: от идеи до релиза и продвижения</p>
+  </div>
+  <div class="steps">
+    <div class="step rv"><div class="num">01</div><h3>Исследование</h3><p>Погружаемся в вашу нишу, аудиторию и цели, чтобы найти сильную идею.</p><p class="out"><span>На выходе</span>бриф и идея проекта</p></div>
+    <div class="step rv"><div class="num">02</div><h3>Разработка формата</h3><p>Создаем концепцию, структуру и визуальный язык, который работает на вашу задачу.</p><p class="out"><span>На выходе</span>концепция, сценарий, смета</p></div>
+    <div class="step rv"><div class="num">03</div><h3>Запуск и продвижение</h3><p>Производим проект, выпускаем и координируем продвижение.</p><p class="out"><span>На выходе</span>готовые выпуски на площадках</p></div>
+  </div>
+  <div class="facts rv">
+    <div class="fact"><small>Пилотный выпуск</small><strong>от 3–4 недель</strong><p>от брифа до готового эпизода</p></div>
+    <div class="fact"><small>Сезон</small><strong>от 2 месяцев</strong><p>серия выпусков с единым стилем</p></div>
+    <div class="fact"><small>Стоимость</small><strong>от 100 000 ₽</strong><p>точная смета — через 2 дня после брифа</p></div>
+  </div>
+  <div class="incl rv">
+    <h3>Что входит</h3>
+    <ul>
+      <li>Идея и формат</li><li>Сценарий</li><li>Ведущий и гости</li><li>Студия и техника</li>
+      <li>Съёмка</li><li>Монтаж и графика</li><li>Нарезки для соцсетей</li><li>Выпуск и продвижение</li>
+    </ul>
+  </div>
+</section>
+
+<!-- БЛОК 4 -->
+<section id="reel">
+  <div class="reel-head rv">
+    <h2 class="accent">Шоурил и кейсы</h2>
+  </div>
+  <button class="poster rv" type="button" data-open="m-video" aria-label="Смотреть шоурил">
+    <img src="assets/poster.jpg?v=2" alt="Кинокамера на стабилизаторе с красным акцентом" loading="lazy">
+    <i class="play"></i>
+    <span class="cap">Смотреть шоурил</span>
+  </button>
+  <div class="cases" id="cases">
+    <article class="case rv">
+      <h3>Онлайн-шоу для VK</h3>
+      <p class="case-client"><span>Клиент</span>Росмолодежь</p>
+      <dl><dt>Задача</dt><dd>Превратить обычное офлайн-мероприятие в 5-часовое онлайн-шоу, интересное для молодежи во всех регионах страны.</dd><dt>Что сделали</dt><dd>Ушли от формата классической телетрансляции и предложили концепцию «шоу в шоу»: свой сценарий, свои ведущие, своя студия прямо посреди зала Национального центра Россия, свои рубрики, программы, интервью.</dd></dl>
+      <div class="case-result"><span>Результат</span><p>1,6 млн просмотров</p><small>Полная досматриваемость</small></div>
+    </article>
+    <article class="case rv">
+      <h3>Авторские интервью</h3>
+      <p class="case-client"><span>Клиент</span>Журнал «Современное здоровье»</p>
+      <dl><dt>Задача</dt><dd>Предложить формат контента для digital-площадок журнала «Современное здоровье» для раскрутки издания.</dd><dt>Что сделали</dt><dd>Выбрали концепцию «бренд-медиа на личном бренде», поработали над упаковкой личного бренда главного редактора, разработали формат интервью-шоу, привлекли к сотрудничеству звезд шоу-бизнеса.</dd></dl>
+      <div class="case-result"><span>Результат</span><p>55 тыс. подписчиков YouTube</p><small>Вывод формата на федеральный телеканал</small></div>
+    </article>
+    <article class="case rv">
+      <h3>Digital-контент</h3>
+      <p class="case-client"><span>Клиент</span>Мебельная компания Elwood</p>
+      <dl><dt>Задача</dt><dd>Вывод компании на премиальный уровень и увеличение доходов за счет имиджа бренда.</dd><dt>Что сделали</dt><dd>Сделали полный ребрендинг — от названия до оформления салонов. Вышли на сотрудничество со СМИ. Начали создавать контент для digital-площадок.</dd></dl>
+      <div class="case-result"><span>Результат</span><p>Первый канал, НТВ</p><small>В партнерах + увеличение среднего чека х10</small></div>
+    </article>
+  </div>
+</section>
+
+<!-- КОМАНДА -->
+<section class="team" id="team">
+  <figure class="team-photo rv"><button class="team-photo-button" type="button" aria-label="Увеличить портрет Киры" aria-pressed="false"><img src="assets/kira-portrait.jpg" alt="Кира Железняк — генеральный продюсер МАРИАРТИ" width="1024" height="1536" loading="lazy"></button></figure>
+  <div class="rv">
+    <p class="sub" style="margin:0">Кто ведёт ваш проект</p>
+    <h2>Кира Железняк</h2>
+    <p class="role">Генеральный продюсер МАРИАРТИ</p>
+    <p class="bio">Продюсер и редактор проектов на Пятнице, ТНТ, России 1 и в digital. С 2021 года наставник по медиа федерального уровня, автор всероссийских информационно-медийных проектов.</p>
+    <ul>
+      <li><strong>С 2009</strong><span>года опыт в медиа</span></li>
+      <li><strong>ТЭФИ</strong><span>Премия за проект</span></li>
+      <li><strong>MBA</strong><span>Степень в маркетинге</span></li>
+    </ul>
+    <blockquote class="quote">
+      <p>За многолетнее сотрудничество с МАРИАРТИ я ни разу не столкнулся с шаблонным подходом. Каждый проект — творческий шедевр со своим уникальным ДНК, глубиной и характером.</p>
+      <p>Удивительное сочетание креативного мышления, стратегического видения и безупречной организации процессов.</p>
+      <footer>Вадим Щедрин<br>Руководитель отдела Управления спецпроектов Росмолодёжь</footer>
+    </blockquote>
+  </div>
+</section>
+
+
+<!-- ФИНАЛ: КОНТАКТЫ -->
+<section class="final" id="contact">
+  <figure class="final-photo"><img src="assets/office-bw.jpg?v=2" alt="Офис МАРИАРТИ" width="1672" height="941"></figure>
+  <div class="final-body rv">
+    <h2>Создадим ваш успешный <em>медиапроект</em></h2>
+    <i class="final-line"></i>
+    <p class="final-label">Что будет после заявки</p>
+    <ol class="next">
+      <li>Ответим в течение одного рабочего дня</li>
+      <li>Бесплатный созвон на 30 минут: обсудим задачу и аудиторию</li>
+      <li>Пришлём концепцию и смету</li>
+    </ol>
+    <p class="final-label">Связаться с продюсером</p>
+    <ul class="final-contacts">
+      <li><small>Телефон</small><a href="tel:+79694840926">+7 969 484 09 26</a></li>
+      <li><small>Telegram</small><a href="https://t.me/madammariarti" target="_blank" rel="noopener">@madammariarti</a></li>
+      <li><small>E-mail</small><a href="mailto:need@mariarti.pro">need@mariarti.pro</a></li>
+      <li><small>География</small><span>Москва · Работаем по России</span></li>
+    </ul>
+    
+    <p class="limit">Мы не работаем на потоке и берём в работу ограниченное число клиентов. Возможно, именно ваш проект станет нашим следующим медиашедевром.</p>
+  </div>
+</section>
+
+<section class="mc" id="mediaceh">
+  <div class="mc-in rv">
+    <div><p class="mc-label">МедиаЦЕХ · обучение</p>
+    <h2>Хочешь стать узнаваемым и создавать собственные медиа?</h2>
+    <p class="mc-text">В МедиаЦЕХе учим прокачивать свою медийность: работать в кадре, выступать, взаимодействовать со СМИ и создавать свои проекты.</p></div>
+    <a class="btn" href="https://mediaceh.moscow" target="_blank" rel="noopener">Подробнее</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <img src="assets/logo.png" alt="" width="514" height="665">
+  <b>Мариарти</b>
+  <span>© 2018 – 2026</span>
+</footer>
+
+<div class="modal" id="m-video" role="dialog" aria-modal="true" aria-label="Шоурил кейсов">
+  <button class="x" data-close aria-label="Закрыть">×</button>
+  <video controls playsinline preload="none" poster="assets/poster.jpg" src="assets/showreel.mp4?v=2"></video>
+</div>
+
+<div class="modal" id="m-letter" role="dialog" aria-modal="true" aria-labelledby="letter-h">
+  <button class="x" data-close aria-label="Закрыть">×</button>
+  <div class="letter">
+    <h3 id="letter-h">Уважаемый читатель!</h3>
+    <p>Каждый проект МАРИАРТИ — это индивидуальная идея, глубокая разработка и полное погружение команды. Поэтому мы не работаем на потоке, а берём в работу ограниченное число клиентов.</p>
+    <p>Напишите нам на почту <a href="mailto:need@mariarti.pro">need@mariarti.pro</a>, расскажите о себе и своем запросе. Возможно, именно Вы — наш следующий медиашедевр.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var b=document.body, burger=document.querySelector('.burger');
+  function menu(on){b.classList.toggle('menu-open',on);burger.setAttribute('aria-expanded',on)}
+  burger.addEventListener('click',function(){menu(!b.classList.contains('menu-open'))});
+  document.querySelectorAll('.menu a').forEach(function(a){a.addEventListener('click',function(){menu(false)})});
+
+  function sc(){b.classList.toggle('scrolled',scrollY>innerHeight*.7)}addEventListener('scroll',sc,{passive:true});sc();
+  var last=null;
+  function open(id){var m=document.getElementById(id);last=document.activeElement;m.classList.add('open');b.style.overflow='hidden';
+    var v=m.querySelector('video');if(v){v.play().catch(function(){})}m.querySelector('.x').focus()}
+  function close(m){m.classList.remove('open');b.style.overflow='';var v=m.querySelector('video');if(v)v.pause();if(last)last.focus()}
+  document.querySelectorAll('[data-open]').forEach(function(el){el.addEventListener('click',function(){open(el.dataset.open)})});
+  document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m||e.target.hasAttribute('data-close'))close(m)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){menu(false);document.querySelectorAll('.modal.open').forEach(close)}});
+
+  document.querySelectorAll('.card').forEach(function(c){c.addEventListener('click',function(e){if(e.target.closest('a'))return;
+    var on=c.classList.contains('on');document.querySelectorAll('.card.on').forEach(function(x){x.classList.remove('on')});if(!on)c.classList.add('on')})});
+
+  var hero=document.querySelector('.hero'), heroZoom=document.querySelector('.hero-zoom');
+  heroZoom.addEventListener('click',function(){
+    var zoomed=hero.classList.toggle('is-zoomed');
+    heroZoom.setAttribute('aria-pressed',String(zoomed));
+    heroZoom.setAttribute('aria-label',zoomed?'Вернуть исходный размер фотографии':'Увеличить фотографию');
+  });
+
+  var portrait=document.querySelector('.team-photo'), portraitButton=document.querySelector('.team-photo-button');
+  portraitButton.addEventListener('click',function(){
+    var zoomed=portrait.classList.toggle('is-zoomed');
+    portraitButton.setAttribute('aria-pressed',String(zoomed));
+  });
+
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    rv.forEach(function(el){io.observe(el)});
+  } else rv.forEach(function(el){el.classList.add('in')});
+})();
+</script>
+</body>
+</html>
